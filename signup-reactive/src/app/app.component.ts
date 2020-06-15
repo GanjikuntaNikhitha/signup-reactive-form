@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
       confirmPassword :['',Validators.required],
       acceptance : [false,Validators.requiredTrue]
     }, {
+       // <-- Here's how you pass in the custom validator.
       validators :PasswordChecker('password' ,'confirmPassword')
     })
   }
