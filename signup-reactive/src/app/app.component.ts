@@ -13,16 +13,20 @@ export class AppComponent implements OnInit {
   constructor( private formbuilder : FormBuilder){}
   ngOnInit() {
     this.registerForm = this.formbuilder.group({
-      firstName : ['',Validators.required ,Validators.maxLength(2)],
+      firstName : ['',[Validators.required ,Validators.maxLength(2)]],
       lastName :['',Validators.required],
       email: ['',Validators.required,Validators.email],
-      password:['',Validators.required],
+      password:['',[Validators.required,Validators.minLength(6)]],
       confirmPassword :['',Validators.required],
       acceptance : [false,Validators.requiredTrue]
     }, {
        // <-- Here's how you pass in the custom validator.
       validators :PasswordChecker('password' ,'confirmPassword')
     })
+  }
+  // get helper method
+  get h() {
+    return this.registerForm.controls;
   }
   onSubmit(){
     this.submitted =true;
