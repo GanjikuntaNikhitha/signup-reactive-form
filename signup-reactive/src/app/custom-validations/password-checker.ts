@@ -11,7 +11,7 @@ export function PasswordChecker(
     const confPassword = formGroup.controls[CompareControlName];
 
     if (password.value !== confPassword.value) {
-      confPassword.setErrors({ mustMatch: true });
+      confPassword.setErrors({ mustmatch: true });
     } else {
       confPassword.setErrors(null);
     }

@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
       email: ['',Validators.required,Validators.email],
       password:['',[Validators.required,Validators.minLength(6)]],
       confirmPassword :['',Validators.required],
-      acceptance : [false,Validators.requiredTrue]
+      acceptTandC:   [false,Validators.requiredTrue]
     }, {
        // <-- Here's how you pass in the custom validator.
       validators :PasswordChecker('password' ,'confirmPassword')
